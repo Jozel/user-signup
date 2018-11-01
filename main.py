@@ -31,7 +31,7 @@ def validate_text(val):
     else:
         return False
 
-@app.route("/validate-form", methods=['POST'])
+@app.route("/validate-form", methods=['GET','POST'])
 def validate():
 
     username_input = request.form['username']  
@@ -53,8 +53,8 @@ def validate():
         username_error=username_error, password_error=password_error, verify_error=verify_error, text_error=text_error)
 
 
-@app.route('/welcome.html')
-def valid_signup():
+@app.route('/welcome')
+def index():
     username = request.args.get('username')
     return render_template('welcome.html')
 
